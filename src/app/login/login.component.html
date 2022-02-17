@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="left">
+        <img src="../../assets/images/inetum.jpg" alt="inetum">
+    </div>
+    <div class="right">
+        <h1>Login page</h1>
+        <!-- <p *ngIf="loginError" class="error">Wrong user or password</p> -->
+        <form method="post" (ngSubmit)="loginUsername()">
+            <div class="formuser">
+                <label for="username" name="username">Username</label>
+                <input
+                    type="text" 
+                    id="username" 
+                    name="username" 
+                    autofocus="autofocus"
+                    [(ngModel)]="login.username"
+                    />
+            </div>
+            <div class="formpassword">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password"  [(ngModel)]="login.password" />
+            </div>
+            <input type="submit" value="Sign in" />
+        </form>
+    </div>
+</div>
