@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginEntity } from '../entities/login.entity';
 import { LoginService } from '../services/login.service';
 
@@ -9,16 +10,28 @@ import { LoginService } from '../services/login.service';
 })
 export class LoginComponent implements OnInit {
   login = new LoginEntity();
+  msg = "";
 
-  constructor(private ls : LoginService) { }
+  constructor(private ls : LoginService, private route : Router) { }
 
   ngOnInit(): void {
   }
 
   public loginUsername() {
     this.ls.login(this.login).subscribe(
-      data => console.log(data),
+      data => {
+        console.log(data),
+        this.route.navigate(['/home'])
+      },
+      error => {
+        console.error('Exception occured');
+        this.msg = "Please enter valid username and password"
+      }
     );
+  }
+
+  public goToRegistration() {
+    this.route.navigate(["/registration"]);
   }
 
 }

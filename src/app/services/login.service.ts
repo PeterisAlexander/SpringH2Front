@@ -13,4 +13,12 @@ export class LoginService {
   public login(login: LoginEntity): Observable<any> {
     return this.http.post<any>("http://localhost:8080/api/login", login);
   }
+
+  public register(login: LoginEntity): Observable<any> {
+    return this.http.post<any>("http://localhost:8080/api/createUser", login);
+  }
+
+  public user(): Observable<LoginEntity[]> {
+    return this.http.get<LoginEntity[]>("http://localhost:8080/api/users");
+  }
 }

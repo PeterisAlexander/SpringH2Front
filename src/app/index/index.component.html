@@ -1,0 +1,14 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">Home</a>
+      <form class="d-flex">
+        <button class="btn btn-danger" type="submit" (click)="logout()">Log Out</button>
+      </form>
+    </div>
+</nav>
+
+<div  *ngFor="let login of logins" class="main">
+    <div class="card">
+        <span class="name">{{ login.username}}</span>
+    </div>
+</div>
