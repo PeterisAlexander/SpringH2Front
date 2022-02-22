@@ -1,25 +1,64 @@
-<div class="container">
-    <div class="left">
+<div class="form">
+    <!-- <div class="left">
         <img src="../../assets/images/inetum.jpg" alt="inetum">
-    </div>
-    <div class="right">
+    </div> -->
+    <!-- <div class="right"> -->
         <h1>Registration page</h1>
-        <form #registerForm="ngForm" method="post" (ngSubmit)="register()" >
-            <div class="formuser">
+        <form [formGroup]="registerForm" method="post" (submit)="register()" >
+            <div class="formLastname">
+                <label for="lastname" name="lastname">lastname</label>
+                <input
+                    type="text" 
+                    id="lastname" 
+                    name="lastname" 
+                    [(ngModel)]="login.lastname"
+                    #lastname
+                    formControlName="lastname"
+                    [class.is-invalid]="lastname.oninvalid && lastname.ontouchend"
+                    required
+                />
+                <span class="error" [class.d-none]="lastname.oninvalid || lastname.ontouchend">Lastname is required field</span>
+            </div>
+            <div class="formFirstname">
+                <label for="firstname" name="firstname">Firstname</label>
+                <input
+                    type="text" 
+                    id="firstname" 
+                    name="firstname" 
+                    [(ngModel)]="login.firstname"
+                    [class.is-invalid]="firstname.invalid && firstname.touched"
+                    #firstname ="ngModel"
+                    required
+                />
+                <span class="error" [class.d-none]="firstname.valid || firstname.untouched">Firstname is required field</span>
+            </div>
+            <div class="formBirthdate">
+                <label for="birthdate" name="birthdate">Birthdate</label>
+                <input
+                    type="date" 
+                    id="birthdate"
+                    name="birthdate" 
+                    [(ngModel)]="login.birthdate"
+                    [class.is-invalid]="birthdate.invalid && birthdate.touched"
+                    #birthdate ="ngModel"
+                    required
+                />
+                <span class="error" [class.d-none]="birthdate.valid || birthdate.untouched">Birthdate is required field</span>
+            </div>
+            <div class="formUsername">
                 <label for="username" name="username">Username</label>
                 <input
                     type="text" 
                     id="username" 
                     name="username" 
-                    autofocus="autofocus"
                     [(ngModel)]="login.username"
                     [class.is-invalid]="username.invalid && username.touched"
                     #username ="ngModel"
                     required
                 />
-                <span class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required field</span>
+                <span class="error" [class.d-none]="username.valid || username.untouched">Username is required field</span>
             </div>
-            <div class="formpass">
+            <div class="formPassword">
                 <label for="password">Password</label>
                 <input 
                     type="password"
@@ -29,9 +68,9 @@
                     #password="ngModel"
                     required
                 />
-                <span class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</span>
+                <span class="error" [class.d-none]="password.valid || password.untouched">Password is required field</span>
             </div>
-            <div class="formpass">
+            <div class="formPassConfirm">
                 <label for="password">Confirm Password</label>
                 <input 
                     type="password"
@@ -41,10 +80,10 @@
                     (ngModel)="login.password"
                     required
                 />
-                <span class="text-danger" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">Password is incorrect</span>
+                <span class="error" [class.d-none]="(cpassword.value == password.value) || cpassword.untouched">Password is incorrect</span>
             </div>
-            <input [disabled]="registerForm.form.invalid" type="submit" value="Sign up" />
-            <small [routerLink]="['/login']" class="float-right">Existing user ? Login here</small>
+            <input [disabled]="registerForm.invalid" type="submit" value="Register" />
         </form>
+        <small [routerLink]="['/login']" class="float-right">Existing user ? Login here</small>
     </div>
-</div>
+<!-- </div> -->

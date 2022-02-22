@@ -1,6 +1,17 @@
-.main {
+.menu {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: aliceblue;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.personList {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
+    gap: 25px;
     margin: 15px;
 }
 .card {
@@ -16,4 +27,47 @@
     text-align: center;
     font-size: xx-large;
     font-family: sans-serif;
+}
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+
+.person {
+    margin: 25px;
+}
+.person-title{
+    font-size: larger;
+    color: white;
+    font-family: sans-serif;
+    margin-bottom: 15px;
+    display: block;
+}
+form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: fit-content;
+    gap: 25px;
+    align-items: center;
+}
+#generate {
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
 }

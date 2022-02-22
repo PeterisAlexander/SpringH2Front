@@ -21,4 +21,13 @@ export class LoginService {
   public user(): Observable<LoginEntity[]> {
     return this.http.get<LoginEntity[]>("http://localhost:8080/api/users");
   }
+
+  public userId(id ? : number): Observable<LoginEntity[]> {
+    return this.http.get<LoginEntity[]>("http://localhost:8080/api/users");
+  }
+
+  public getGeneratePerson(nbPerson?: number): Observable<LoginEntity[]> {
+    return this.http.get<LoginEntity[]>(
+      "http://localhost:8080/api/generator?nbPerson=" + nbPerson);
+  }
 }

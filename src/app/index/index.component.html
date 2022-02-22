@@ -1,14 +1,37 @@
-<nav class="navbar navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand">Home</a>
+<nav class="navbar">
+    <div class="menu">
+      <a class="menu-title">Home</a>
       <form class="d-flex">
         <button class="btn btn-danger" type="submit" (click)="logout()">Log Out</button>
       </form>
     </div>
 </nav>
 
-<div  *ngFor="let login of logins" class="main">
-    <div class="card">
+<div class="personProfil">
+  <span class="person-title">Profil Information : </span>
+  <div class="lastname">
+    <span>Lastname : </span> <span>{{lastname}}</span>
+  </div>
+  <div class="firstname">
+    <span>Firstname : </span> <span>{{firstname}}</span>
+  </div>
+  <div class="birthdate">
+    <span>Birthdate : </span> <span>{{birthdate}}</span>
+  </div>
+</div>
+
+
+<div class="person">
+  <span class="person-title">Random Generator Person Information : </span>
+  <form action="get" [formGroup]="personForm" (submit)="generatePerson()">
+    <input type="number" name="nbPerson" value={{nbPerson}} formControlName="item">
+    <input type="submit" value="Generate" id="generate" >
+  </form>
+  <div  class="personList">
+    <div *ngFor="let login of logins" class="card">
         <span class="name">{{ login.username}}</span>
     </div>
 </div>
+</div>
+
+

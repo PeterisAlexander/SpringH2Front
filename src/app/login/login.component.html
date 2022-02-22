@@ -1,5 +1,6 @@
-<div class="container">
+<div class="form">
     <div class="left">
+        <!-- <img src="https://www.agefi.fr/sites/agefi.fr/files/styles/w_700/public/styles/paysage/public/images/2021/06/inetum_digital_flow_ex-gfi_photo_inetum.jpg?itok=47McbiXE" alt="inetum"> -->
         <img src="../../assets/images/inetum.jpg" alt="inetum">
     </div>
     <div class="right">
@@ -12,13 +13,12 @@
                     type="text" 
                     id="username" 
                     name="username" 
-                    autofocus="autofocus"
                     [(ngModel)]="login.username"
                     [class.is-invalid]="username.invalid && username.touched"
                     #username ="ngModel"
                     required
                 />
-                <span class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required field</span>
+                <span class="error" [class.d-none]="username.valid || username.untouched">Username is required field</span>
             </div>
             <div class="formpass">
                 <label for="password">Password</label>
@@ -30,7 +30,7 @@
                     #password="ngModel"
                     required
                 />
-                <span class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</span>
+                <span class="error" [class.d-none]="password.valid || password.untouched">Password is required field</span>
             </div>
             <input [disabled]="loginForm.form.invalid" type="submit" value="Sign in" />
         </form>

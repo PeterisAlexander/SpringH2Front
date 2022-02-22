@@ -20,11 +20,9 @@ export class LoginComponent implements OnInit {
   public loginUsername() {
     this.ls.login(this.login).subscribe(
       data => {
-        console.log(data),
         this.route.navigate(['/home'])
       },
       error => {
-        console.error('Exception occured');
         this.msg = "Please enter valid username and password"
       }
     );
