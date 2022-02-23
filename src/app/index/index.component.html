@@ -1,14 +1,7 @@
-<nav class="navbar">
-    <div class="menu">
-      <a class="menu-title">Home</a>
-      <form class="d-flex">
-        <button class="btn btn-danger" type="submit" (click)="logout()">Log Out</button>
-      </form>
-    </div>
-</nav>
+<app-header></app-header>
 
-<div class="personProfil">
-  <span class="person-title">Profil Information : </span>
+<h1>Bonjour {{username}} bienvenue sur la page HOME</h1>
+<div>
   <div class="lastname">
     <span>Lastname : </span> <span>{{lastname}}</span>
   </div>
@@ -21,17 +14,6 @@
 </div>
 
 
-<div class="person">
-  <span class="person-title">Random Generator Person Information : </span>
-  <form action="get" [formGroup]="personForm" (submit)="generatePerson()">
-    <input type="number" name="nbPerson" value={{nbPerson}} formControlName="item">
-    <input type="submit" value="Generate" id="generate" >
-  </form>
-  <div  class="personList">
-    <div *ngFor="let login of logins" class="card">
-        <span class="name">{{ login.username}}</span>
-    </div>
-</div>
-</div>
+
 
 

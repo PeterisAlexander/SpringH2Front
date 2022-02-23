@@ -7,12 +7,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { GeneratorPersonComponent } from './generator-person/generator-person.component';
+import { HeaderComponent } from './commun/header/header.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     IndexComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    GeneratorPersonComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

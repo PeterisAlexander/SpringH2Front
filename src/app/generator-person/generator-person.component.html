@@ -1,0 +1,14 @@
+<app-header></app-header>
+
+<div class="person">
+    <span class="person-title">Random Generator Person Information : </span>
+    <form action="get" [formGroup]="personForm" (submit)="generatePerson()">
+      <input type="number" name="nbPerson" value={{nbPerson}} formControlName="item">
+      <input type="submit" value="Generate" id="generate" >
+    </form>
+    <div  class="personList">
+      <div *ngFor="let login of logins" class="card">
+          <span class="name">{{ login.username}}</span>
+      </div>
+    </div>
+</div>
