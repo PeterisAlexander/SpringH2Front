@@ -16,10 +16,10 @@ export class LoginComponent implements OnInit {
   login = new LoginEntity();
   msg = "";
 
-  username = ""
-  password = ""
+  username = "";
+  password = "";
 
-  constructor(private ls : LoginService, private route : Router, private http : HttpClient, private router : Router , private app : AppComponent, private guard: AuthGuard
+  constructor(private ls: LoginService, private route: Router, private http: HttpClient, private router: Router, private app: AppComponent, private guard: AuthGuard
     , private config: ConfigService) { }
 
   ngOnInit(): void {
@@ -41,26 +41,28 @@ export class LoginComponent implements OnInit {
   }
 
   public logine() {
-    let u = {"username" : this.login.username , "password" : this.login.password }
-    
+    let u = { "username": this.login.username, "password": this.login.password };
 
- this.ls.login(u).subscribe(
-   {
-     next: (data) => { 
-       sessionStorage.setItem("connected" , "1" ); 
-       sessionStorage.setItem("user" , JSON.stringify(data) )
-       this.router.navigate(['home'])  
-       this.app.user = data
-       
-       
-       this.config.httpOptions.headers = new HttpHeaders({
-           'Authorization' : "Basic " + data.password 
-         });
-       
-     },
-     error: (err) => { console.log(err.error.message) }
-   }
- )
-}
+    this.ls.login(u).subscribe(
+      {
+        next: (data) => {
+          sessionStorage.setItem("connected", "1");
+          sessionStorage.setItem("user", JSON.stringify(data));
+          this.router.navigate(['home']);
+          this.app.user = data;
+
+
+          this.config.httpOptions.headers = new HttpHeaders({
+            'Authorization': "Basic " + data.password
+          });
+
+        },
+        error: (err) => {
+          this.msg = "Please enter valid username and password";
+          console.log(err.error.message);
+        }
+      }
+    )
+  }
 
 }

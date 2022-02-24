@@ -14,12 +14,14 @@ import { LoginService } from '../services/login.service';
 export class IndexComponent implements OnInit {
   login : LoginEntity = new LoginEntity();
 
+  user = sessionStorage.getItem("user");
+  obj = JSON.parse(this.user!);
+
   username : string = "";
   lastname : string = "";
   firstname : string = "";
   birthdate : string = "";
-
-
+  
   personForm = new FormGroup({
     item : new FormControl(""),
   });
@@ -34,16 +36,5 @@ export class IndexComponent implements OnInit {
     this.lastname = obj.lastname;
     this.firstname = obj.firstname;
     this.birthdate = obj.birthdate;
-
-    // this.ls.login(this.login).subscribe({
-    //   next: (data) => { 
-    //     this.logins = data
-    //   },
-    //   error: (err) => { console.log(err.error.message) }
-    // });
-    // this.app.user = this.guard.getUser();
   }
-
-  
-
 }

@@ -4,20 +4,20 @@
     </div> -->
     <!-- <div class="right"> -->
         <h1>Registration page</h1>
-        <form [formGroup]="registerForm" method="post" (submit)="register()" >
+        <form #registerForm="ngForm" method="post" (ngSubmit)="register()" >
             <div class="formLastname">
-                <label for="lastname" name="lastname">lastname</label>
+                <label for="lastname" name="lastname">Lastname</label>
                 <input
                     type="text" 
                     id="lastname" 
                     name="lastname" 
                     [(ngModel)]="login.lastname"
-                    #lastname
-                    formControlName="lastname"
-                    [class.is-invalid]="lastname.oninvalid && lastname.ontouchend"
+                    [class.is-invalid]="lastname.invalid && lastname.touched"
+                    #lastname ="ngModel"
                     required
                 />
-                <span class="error" [class.d-none]="lastname.oninvalid || lastname.ontouchend">Lastname is required field</span>
+                <span class="error" [class.d-none]="lastname.valid || lastname.untouched">Lastname is required field</span>
+                <!-- <span class="error" [class.is-invalid]="registerForm.get('lastname')?.invalid || registerForm.get('lastname')?.touched">Lastname is required field</span> -->
             </div>
             <div class="formFirstname">
                 <label for="firstname" name="firstname">Firstname</label>

@@ -1,6 +1,9 @@
 <app-header></app-header>
 
-<h1>Bonjour {{username}} bienvenue sur la page HOME</h1>
+<h1 *ngIf="username != null">Bonjour {{username}} bienvenue sur la page HOME</h1>
+<h1>Bienvenue sur la page Home</h1>
+
+
 <div>
   <div class="lastname">
     <span>Lastname : </span> <span>{{lastname}}</span>

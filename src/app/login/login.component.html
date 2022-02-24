@@ -5,8 +5,8 @@
     </div>
     <div class="right">
         <h1>Login page</h1>
-        <p class="error">{{msg}}</p>
         <form #loginForm="ngForm" method="post" (ngSubmit)="logine()" >
+            <p class="error">{{msg}}</p>
             <div class="formuser">
                 <label for="username" name="username">Username</label>
                 <input
@@ -34,6 +34,6 @@
             </div>
             <input [disabled]="loginForm.form.invalid" type="submit" value="Sign in" />
         </form>
-        <small (click)="goToRegistration()" class="float-right">New user ? Register here</small>
+        <small (click)="goToRegistration()">New user ? Register here</small>
     </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IndexComponent } from '../index/index.component';
 
 @Component({
   selector: 'app-header',
@@ -17,5 +18,9 @@ export class HeaderComponent implements OnInit {
     sessionStorage.removeItem("connected")
     this.router.navigate(['login'])
     sessionStorage.removeItem("user")
+  }
+
+  login():void {
+    this.router.navigate(['login'])
   }
 }

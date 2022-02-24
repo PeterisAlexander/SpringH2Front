@@ -8,7 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { GeneratorPersonComponent } from './generator-person/generator-person.component';
-import { HeaderComponent } from './commun/header/header.component';
+import { HeaderComponent } from './header/header.component';
 @NgModule({
   declarations: [
     AppComponent,

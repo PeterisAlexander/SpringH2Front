@@ -30,7 +30,7 @@ export class RegistrationComponent implements OnInit {
 
     console.log( register ); 
 
-      this.ls.register(register).subscribe(
+      this.ls.register(this.login).subscribe(
         data => {
           console.log(data);
           this.router.navigate(['login'])

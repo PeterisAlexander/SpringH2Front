@@ -8,9 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
-  { path : "" , redirectTo: '/home', pathMatch: 'full' },
-  { path : "home" , component: IndexComponent , canActivate: [AuthGuard]},
-  { path : "generator" , component: GeneratorPersonComponent, canActivate: [AuthGuard]},
+  { path : "home" , component: IndexComponent},
+  // { path : "home" , component: IndexComponent},
+  { path : "generator" , component: GeneratorPersonComponent},
   { path : "login" , component: LoginComponent },
   { path : "registration" , component: RegistrationComponent }
 ];
